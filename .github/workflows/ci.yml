@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -uses: actions/checkout@v4
-      - run: echo $"APP_NAME"
+      - run: echo $APP_NAME
       - run: echo ${{ secrets.MY_PASSWORD }}
+      - run: docker build -t myapp .
       - run: echo "hello artifact" > report.txt
       - uses: actions/upload-artifact@v4
          with:
