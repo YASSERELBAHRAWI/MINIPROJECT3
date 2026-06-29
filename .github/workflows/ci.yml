@@ -1,6 +1,6 @@
 name: Advanced CI 
 on:
-  push
+  push:
 
 env:
   APP_NAME: myapp
@@ -9,12 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      -uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - run: echo $APP_NAME
       - run: echo ${{ secrets.MY_PASSWORD }}
       - run: docker build -t myapp .
       - run: echo "hello artifact" > report.txt
       - uses: actions/upload-artifact@v4
-         with:
+        with:
            name: myreport
            path: report.txt
